@@ -43,7 +43,7 @@ const strings = {
     ],
     gS2Title: 'Instalar Breach',
     gS2: [
-      { strong: 'Descargue Breach.exe', text: ' - es el instalador del paquete Breach.' },
+      { strong: 'Descargue Breach.rar', text: ' - contiene el instalador del paquete Breach.' },
       { strong: 'Ejecute el instalador', text: ' - deja el Manager en el escritorio.' },
       { strong: 'Abra el Manager por primera vez', text: ' - la app le pedira la carpeta raiz del juego.' },
       { strong: 'Presione Install Breach', text: ' - el Manager instala el loader y deja la base lista.' }
@@ -98,7 +98,7 @@ const strings = {
     ],
     gS2Title: 'Install Breach',
     gS2: [
-      { strong: 'Download Breach.exe', text: ' - this is the installer for the Breach package.' },
+      { strong: 'Download Breach.rar', text: ' - this is the installer for the Breach package.' },
       { strong: 'Run the installer', text: ' - it places the Manager on the desktop.' },
       { strong: 'Open the Manager for the first time', text: ' - the app will ask for the game root folder.' },
       { strong: 'Click Install Breach', text: ' - the Manager installs the loader and prepares the base setup.' }
