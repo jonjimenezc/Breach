@@ -332,3 +332,4 @@ document.addEventListener('keydown', (event) => {
 });
 
 setLang(currentLang);
+window.__breachAppReady = true;

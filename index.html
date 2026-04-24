@@ -11,8 +11,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-<script src="app.js" defer></script>
+<link rel="stylesheet" href="styles.css?v=20260424-2" />
+<script src="app.js?v=20260424-2" defer></script>
 </head>
 <body>
 
@@ -39,7 +39,7 @@
       <div class="hero-panel-inner">
         <div class="action-cluster">
           <div class="primary-action">
-            <a class="download-btn" href="https://github.com/jonjimenezc/Breach/releases/download/v1.0.1/Breach.exe" id="dl-btn" rel="noopener noreferrer">
+            <a class="download-btn" href="https://github.com/jonjimenezc/Breach/releases" id="dl-btn" rel="noopener noreferrer">
               <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 15V3"></path>
                 <path d="M7 10l5 5 5-5"></path>
@@ -164,5 +164,110 @@
   </div>
 </div>
 
+<script>
+(function () {
+  var ready = function (fn) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn, { once: true });
+    } else {
+      fn();
+    }
+  };
+
+  var byId = function (id) {
+    return document.getElementById(id);
+  };
+
+  var setOpen = function (element, open) {
+    if (!element) {
+      return;
+    }
+    element.classList.toggle('open', open);
+    element.setAttribute('aria-hidden', open ? 'false' : 'true');
+  };
+
+  var fallbackItems = [
+    ['Estetica', ' - texto Breach v1.0.1 en la pantalla de Click to Continue.'],
+    ['Nuevos temas en el manager', ' - Silver y Ultra Dark.'],
+    ['Nuevo tema rojo', '.'],
+    ['Importacion directa', ' - busca mejorar la importacion por .rar.'],
+    ['Biblioteca mas practica', ' - botones de activar, desactivar y borrar todo ya integrados.'],
+    ['Desinstalacion directa', ' - nuevo boton para desinstalar mas facil.'],
+    ['Compatibilidad del loader', ' - se implementaron parches para resolver casos puntuales donde aun hacia falta mejorar.'],
+    ['Contacto directo', ' - ahora puede escribir a breachsupport@gmail.com para resolver dudas.']
+  ];
+
+  var renderFallbackList = function () {
+    var list = byId('changes-list');
+    if (!list || list.children.length) {
+      return;
+    }
+    fallbackItems.forEach(function (item) {
+      var row = document.createElement('div');
+      var dot = document.createElement('div');
+      var text = document.createElement('span');
+      var strong = document.createElement('strong');
+      row.className = 'feature-item';
+      dot.className = 'feature-dot';
+      strong.textContent = item[0];
+      text.appendChild(strong);
+      text.appendChild(document.createTextNode(item[1]));
+      row.appendChild(dot);
+      row.appendChild(text);
+      list.appendChild(row);
+    });
+  };
+
+  ready(function () {
+    var changesList = byId('changes-list');
+    if (window.__breachAppReady || (changesList && changesList.children.length)) {
+      return;
+    }
+
+    renderFallbackList();
+
+    var changesButton = byId('changes-btn');
+    var changesPanel = byId('changes-panel');
+    var featureButton = byId('feat-btn');
+    var featureOverlay = byId('modal-overlay');
+    var guideButton = byId('guide-btn');
+    var guideOverlay = byId('guide-overlay');
+
+    if (changesButton && changesPanel && !changesButton.dataset.fallbackReady) {
+      changesButton.dataset.fallbackReady = 'true';
+      changesButton.addEventListener('click', function (event) {
+        var open = !changesPanel.classList.contains('open');
+        event.stopPropagation();
+        setOpen(changesPanel, open);
+        changesButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+
+    if (featureButton && featureOverlay && !featureButton.dataset.fallbackReady) {
+      featureButton.dataset.fallbackReady = 'true';
+      featureButton.addEventListener('click', function () {
+        setOpen(featureOverlay, true);
+      });
+    }
+
+    if (guideButton && guideOverlay && !guideButton.dataset.fallbackReady) {
+      guideButton.dataset.fallbackReady = 'true';
+      guideButton.addEventListener('click', function () {
+        setOpen(guideOverlay, true);
+      });
+    }
+
+    document.addEventListener('click', function (event) {
+      if (event.target && event.target.classList && event.target.classList.contains('modal-overlay')) {
+        setOpen(event.target, false);
+      }
+      if (event.target && event.target.classList && event.target.classList.contains('modal-close')) {
+        var overlay = event.target.closest('.modal-overlay');
+        setOpen(overlay, false);
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
