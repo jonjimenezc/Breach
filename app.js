@@ -35,7 +35,7 @@ const strings = {
     changesEyebrow: 'Cambios en v1.0.1',
     changesItems: [
       { strong: 'Estetica', text: ' - texto Breach v1.0.1 en la pantalla de Click to Continue.' },
-      { strong: 'Nuevos temas en el manager', text: ' - Silver y Ultra Dark.' },
+      { strong: 'Nuevos temas en el manager', text: ' - Silver y Midnight.' },
       { strong: 'Nuevo tema rojo', text: '.' },
       { strong: 'Importacion directa', text: ' - busca mejorar la importacion por .rar.' },
       { strong: 'Biblioteca mas practica', text: ' - botones de activar, desactivar y borrar todo ya integrados.' },
@@ -103,7 +103,7 @@ const strings = {
     changesEyebrow: 'Changes in v1.0.1',
     changesItems: [
       { strong: 'Visual update', text: ' - Breach v1.0.1 text on the Click to Continue screen.' },
-      { strong: 'New manager themes', text: ' - Silver and Ultra Dark.' },
+      { strong: 'New manager themes', text: ' - Silver and Midnight.' },
       { strong: 'New red theme', text: '.' },
       { strong: 'Direct import', text: ' - focused on improving direct .rar importing.' },
       { strong: 'Cleaner library controls', text: ' - enable, disable, and delete all buttons are now built in.' },
