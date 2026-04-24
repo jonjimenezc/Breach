@@ -253,6 +253,48 @@ body::before {
   width: 100%;
 }
 
+.changes-panel {
+  width: min(100%, 760px);
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: rgba(17, 8, 8, 0.92);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: max-height 0.24s ease, padding 0.24s ease, border-color 0.24s ease, opacity 0.24s ease, transform 0.24s ease;
+}
+
+.changes-panel.open {
+  max-height: 320px;
+  padding: 18px 20px;
+  border-color: var(--border);
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.changes-eyebrow {
+  margin-bottom: 12px;
+  color: var(--red-bright);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.changes-list {
+  gap: 12px;
+}
+
+.changes-list .feature-item {
+  color: #c1b6b6;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
 .download-btn {
   position: relative;
   display: inline-flex;
@@ -334,6 +376,12 @@ body::before {
   color: var(--white-cold);
 }
 
+.changes-mini-btn {
+  padding: 14px 22px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
 .guide-btn:hover {
   background: rgba(185, 28, 28, 0.18);
   border-color: var(--red-bright);
@@ -370,12 +418,41 @@ body::before {
   text-transform: uppercase;
 }
 
+.site-footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
 .site-footer {
   position: relative;
   z-index: 1;
   display: flex;
   justify-content: center;
   padding: 0 24px 24px;
+}
+
+.site-support {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #7c6b6b;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.site-support-link {
+  color: #9f8989;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-support-link:hover {
+  color: var(--white-cold);
 }
 
 .modal-overlay {
@@ -571,7 +648,8 @@ body::before {
   }
 
   .download-btn,
-  .features-btn {
+  .features-btn,
+  .changes-panel {
     width: 100%;
   }
 
@@ -585,9 +663,24 @@ body::before {
     font-size: 13px;
   }
 
+  .changes-mini-btn {
+    padding: 16px 24px;
+    font-size: 13px;
+  }
+
+  .changes-panel.open {
+    max-height: 420px;
+    padding: 16px 16px;
+  }
+
   .site-legal {
     font-size: 9px;
     line-height: 1.7;
+  }
+
+  .site-support {
+    font-size: 9px;
+    gap: 6px;
   }
 
   .site-footer {
