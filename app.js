@@ -137,8 +137,11 @@ const strings = {
   }
 };
 
+const downloadUrl = 'https://github.com/jonjimenezc/Breach/releases/download/v1.0.1/Breach.zip';
+
 const refs = {
   subtitle: document.getElementById('subtitle-txt'),
+  downloadButton: document.getElementById('dl-btn'),
   downloadLabel: document.getElementById('dl-label'),
   guideLabel: document.getElementById('guide-label'),
   featureLabel: document.getElementById('feat-label'),
@@ -205,6 +208,7 @@ function setLang(lang) {
   const s = strings[lang];
 
   refs.subtitle.textContent = s.subtitle;
+  refs.downloadButton.href = downloadUrl;
   refs.downloadLabel.textContent = s.dl;
   refs.guideLabel.textContent = s.guideBtn;
   refs.featureLabel.textContent = s.featBtn;
